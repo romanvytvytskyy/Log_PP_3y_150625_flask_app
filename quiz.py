@@ -21,7 +21,6 @@ def test():
 
 def result():
     return '<h1>Результат</h1>'
-
     
 app = Flask(__name__)
 app.add_url_rule('/', 'index', index)
