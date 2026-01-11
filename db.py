@@ -61,7 +61,7 @@ def create():
 
 
 def add_questions():
-    questions = [('Скілький місяців на рік мають  днів?','Всі','Один','Жодного','Два'),
+    questions = [('Скілький місяців на рік мають 28 днів?','Всі','Один','Жодного','Два'),
                  ('Якою рукою краще розмішувати чай?', 'Ложкою', 'Парвою', 'Лівою', 'Любою')]
     open()
     cursor.executemany(
@@ -113,19 +113,20 @@ def get_question_after(question_id = 0, quiz_id = 1):
                 question.wrong2, question.wrong3 FROM question, quiz_content 
                 WHERE quiz_content.question_id = question.id AND quiz_content.id > ? 
                 AND quiz_content.quiz_id = ? ORDER BY quiz_content.id'''
+    print(question_id, quiz_id)
     cursor.execute(query, (question_id, quiz_id))
     result = cursor.fetchone()
     close()
     return result
 
 def main():
-    clear_db()
-    create()
-    add_questions()
-    add_quiz()
+    # clear_db()
+    # create()
+    # add_questions()
+    # add_quiz()
     add_links()
     show_tables()
-    print(get_question_after(1,1))
+    print(get_question_after(1,3))
     
 if __name__ == '__main__':
     main()
