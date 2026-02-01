@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Вікторина | результат</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Ваш результат:</h1>
+    <div class="outer-div">
+      <h3>{{ right }} правильних відповідей з {{ total }}</h3>
+    </div>
+    <a href="{{url_for('index')}}" class="button"> На початок </a>
+  </body>
+</html>
